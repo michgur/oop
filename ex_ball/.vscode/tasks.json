@@ -1,0 +1,11 @@
+{
+  "tasks": [
+    {
+      "label": "Run project",
+      "command": "javac -cp 'src:../lib/DanoGameLab/DanoGameLab.jar' $(find . -path '*/danogl/*' -prune -o -name '*.java' -print) && java -cp 'src:../lib/DanoGameLab/DanoGameLab.jar' bricker.main.BrickerGameManager",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    }
+  ]
+}
