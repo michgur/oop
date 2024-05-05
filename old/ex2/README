@@ -1,0 +1,17 @@
+michael.gur
+207555178
+
+What's the benefit of having player classes implement a common interface?
+- We can treat all players the same way, regardless of the underlying strategy & implementation.
+- This allows us to exchange different players in `Game` and `Tournament` and remove code duplication.
+- It also allows us to easily add new kinds of players to the game, and compare different strategies against each other.
+
+Player strategies:
+- `WhateverPlayer`: selects a random legal move.
+- `CleverPlayer`: on the first turn, selects a random move. On subsequent turns, tries to select an empty cell that's adjacent to a cell with the same mark (otherwise, selects the last empty cell it finds).
+- `GeniusPlayer`: for each cell, it calculates the max streak that can be achieved by placing a mark in the cell, for both itself and the opponent. It then assigns the cell a score based on some constant multipliers, and selects the cell with the highest score.
+
+Tournamet scores:
+- `WhateverPlayer` vs. `CleverPlayer`: 1611:8388, 1 tie
+- `CleverPlayer` vs. `GeniusPlayer`: 1:9999, 0 ties
+- `WhateverPlayer` vs. `WhateverPlayer`: 5108:4879, 13 ties
