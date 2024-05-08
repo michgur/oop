@@ -1,0 +1,19 @@
+{
+  "tasks": [
+    {
+      "label": "Run project",
+      "command": "javac -cp '.:../../lib/DanoGameLab/DanoGameLab.jar' $(find . -path '*/danogl/*' -prune -o -name '*.java') ; java -cp '.:../../lib/DanoGameLab/DanoGameLab.jar' ${input:mainClass}",
+      "options": {
+        "cwd": "${workspaceFolder}/src"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "projectName",
+      "description": "Enter the name of the project",
+      "default": "project"
+    }
+  ]
+}
